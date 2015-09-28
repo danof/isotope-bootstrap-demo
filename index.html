@@ -21,7 +21,6 @@
       margin: 0 20px 20px 0;
       float: left;
       width: 212px;
-      height: auto;
     }
 
     #items {
@@ -111,6 +110,16 @@
 
   <script>
   $(document).ready(function() {
+
+    var changeHeight = function(el) {
+      $(el).css('height', $(el).width());
+    };
+
+    changeHeight('.element-item');
+
+    $(window).resize(function() {
+      changeHeight('.element-item');
+    });
 
     var $container = $('#items').isotope({
       itemSelector: '.element-item',
